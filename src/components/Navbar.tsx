@@ -38,6 +38,7 @@ function Navbar() {
             <li><Link href="/">Home</Link></li>
             <li><Link href="/agrisense">AgriSense</Link></li>
             <li><Link href="/stats">Stats</Link></li>
+            <li><Link href="/health">Health</Link></li>
             <li><Link href="/working">Working</Link></li>
             <li><Link href="/about">About Us</Link></li>
           </ul>
@@ -67,6 +68,9 @@ function Navbar() {
           </li>
           <li className="py-4 hover:bg-white/20 rounded-lg transition-colors duration-300">
             <Link href="/stats">Stats</Link>
+          </li>
+          <li className="py-4 hover:bg-white/20 rounded-lg transition-colors duration-300">
+            <Link href="/health">Health</Link>
           </li>
           <li className="py-4 hover:bg-white/20 rounded-lg transition-colors duration-300">
             <Link href="/working">Working</Link>
