@@ -37,6 +37,7 @@ function Navbar() {
           <ul className="list-none flex gap-5 font-normal text-white">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/agrisense">AgriSense</Link></li>
+            <li><Link href="/stats">Stats</Link></li>
             <li><Link href="/working">Working</Link></li>
             <li><Link href="/about">About Us</Link></li>
           </ul>
@@ -57,12 +58,15 @@ function Navbar() {
           </button>
         </div>
 
-        <ul className="flex flex-col items-center text-white font-normal bg-black/60 backdrop-blur-md">
+        <ul className="flex flex-col items-center text-white font-normal  backdrop-blur-md">
           <li className="py-4 hover:bg-white/20 rounded-lg transition-colors duration-300">
             <Link href="/">Home</Link>
           </li>
           <li className="py-4 hover:bg-white/20 rounded-lg transition-colors duration-300">
             <Link href="/agrisense">AgriSense</Link>
+          </li>
+          <li className="py-4 hover:bg-white/20 rounded-lg transition-colors duration-300">
+            <Link href="/stats">Stats</Link>
           </li>
           <li className="py-4 hover:bg-white/20 rounded-lg transition-colors duration-300">
             <Link href="/working">Working</Link>

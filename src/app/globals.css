@@ -18,9 +18,9 @@ body {
   font-family: "Work Sans", serif;
 }
 .first {
-  background-image: url('/b1.jpg');
+
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
-  height: 100vh; 
+
 }
