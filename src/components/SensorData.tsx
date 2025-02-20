@@ -18,9 +18,21 @@ const SensorData: React.FC = () => {
     temperature: null,
   });
 
+  // Check the threshold breach time from localStorage
+  const getLastEmailTime = () => {
+    const lastEmailTime = localStorage.getItem('lastEmailTime');
+    return lastEmailTime ? new Date(lastEmailTime) : null;
+  };
+
+  const setLastEmailTime = () => {
+    const currentTime = new Date().toISOString();
+    localStorage.setItem('lastEmailTime', currentTime);
+  };
+
   useEffect(() => {
     const fetchSensorData = async () => {
       const sensorRef = ref(database, 'sensor');
+      const lastEmailTime = getLastEmailTime();
 
       try {
         const snapshot = await get(sensorRef);
@@ -33,9 +45,19 @@ const SensorData: React.FC = () => {
             temperature: data.temperature,
           });
 
-          // Check the threshold conditions for triggering an email alert
-          if (data.humidity < 30 || data.humidity > 80 || data.mq135_ppm < 0.1 || data.mq135_ppm > 2) {
+          // Check if threshold conditions are met
+          const now = new Date();
+          const twoHoursInMilliseconds = 2 * 60 * 60 * 1000;
+          const isTimeToSendEmail =
+            !lastEmailTime ||
+            now.getTime() - new Date(lastEmailTime).getTime() > twoHoursInMilliseconds;
+
+          if (
+            (data.humidity < 30 || data.humidity > 80 || data.mq135_ppm < 0.1 || data.mq135_ppm > 2) &&
+            isTimeToSendEmail
+          ) {
             sendEmailAlert(data.humidity, data.mq135_ppm, data.soil_moisture, data.temperature);
+            setLastEmailTime(); // Update the last email time after sending the email
           }
         } else {
           console.log('No data available');
