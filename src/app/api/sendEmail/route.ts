@@ -48,7 +48,7 @@ export async function POST(req: Request) {
 
   const mailOptions = {
     from: 'saviourr.team@gmail.com',
-    to: 'singhalvarad1526@gmail.com, nidhishgaming7@gmail.com, krishpardhan471@gmail.com',
+    to: 'singhalvarad1526@gmail.com, nidhishgaming7@gmail.com, krishpardhan471@gmail.com, ananyakar2007@gmail.com',
     subject: 'AgriSense Alert: Sensor Value Out of Range',
     html: `
       <html>
